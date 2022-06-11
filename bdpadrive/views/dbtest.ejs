@@ -1,0 +1,10 @@
+<%- include('./partials/head', { title: 'Database Test' }) -%>
+    <h1><%= title %> </h1>
+    <form>
+        <input type="button" onclick="window.location.href='/dbtest/Submit'" value="Run Test">
+    </form>
+    <% if (userData !== null ) { %>
+    <% userData.forEach(function(user) { %>
+        <%= user.idusers %>, <%= user.username %>, <%= user.password %> <br>
+    <% })}; %>
+    <%- include('./partials/foot') -%>

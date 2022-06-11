@@ -1,0 +1,5 @@
+const { redirect } = require("express/lib/response");
+
+function dbSubmit() {
+    return redirect('./Submit');
+}
