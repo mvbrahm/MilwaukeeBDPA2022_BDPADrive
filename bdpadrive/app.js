@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var dbtestRouter = require('./routes/dbtest');
 var apitestRouter = require('./routes/apitest');
 var keygenerationRouter = require('./routes/keygeneration');
+var bootstraptestRouter = require('./routes/bootstraptest');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/users', usersRouter);
 app.use('/dbtest', dbtestRouter);
 app.use('/apitest', apitestRouter);
 app.use('/keygeneration', keygenerationRouter);
+app.use('/bootstraptest', bootstraptestRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

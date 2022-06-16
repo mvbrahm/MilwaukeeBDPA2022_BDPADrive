@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.navbar-custom {
+  background-color: lightgreen;
+}
+
+.grid-container-custom {
+  background-color: lightgreen;
+}
