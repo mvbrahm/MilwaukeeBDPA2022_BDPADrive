@@ -30,6 +30,7 @@ app.use('/dbtest', dbtestRouter);
 app.use('/apitest', apitestRouter);
 app.use('/keygeneration', keygenerationRouter);
 app.use('/bootstraptest', bootstraptestRouter);
+app.use('/signin', signinRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
