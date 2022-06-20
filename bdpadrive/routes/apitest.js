@@ -6,29 +6,35 @@ router.get('/', function (req, res, next) {
   res.render('apitest', { title: 'API Test', nodeData: null });
 });
 
-const httpRequest = require('https');
+const user = 'MKEbdpa';
 
-router.get('/ListNodes', function (req, res, next) {
-  let myURL = apiParameters.baseurl + "filesystem/User1/search?";
-  let options = {
+router.get('/AddNodes', async (req,res,next)=>{
+  const fetch = require('node-fetch');
+  let myURL = apiParameters.baseurl + "filesystem/" + user;
+  const result = await fetch(myURL, {
+    method: 'POST',
+    headers: apiParameters.headers,
+    body: JSON.stringify({
+      type: 'directory',
+      name: 'My Musical Lyrics',
+      contents: []
+    })
+  });
+  console.log(await result.json());
+});
+
+router.get('/ListNodes', async (req,res,next) => {
+  const fetch = require('node-fetch');
+  let myURL = apiParameters.baseurl + "filesystem/" + user + "/search?";
+  const result = await fetch(myURL, {
     method: 'GET',
     headers: apiParameters.headers
-  };
-  const request = httpRequest.request(myURL, options, response => {
-    console.log('Status', response.statusCode);
-    console.log('Headers', response.headers);
-    let responseData = '';
-    response.on('data', (dataChunk) => {
-      responseData += dataChunk;
-    });
-    response.on('end', () => {
-      console.log('Response: ', responseData)
-      res.render('apitest', { title: 'API Test', nodeData: JSON.parse(responseData).nodes });
-    });
   });
-  request.on('error', error => console.log('ERROR', error));
-  request.end();
+  const responseData = await result.json();
+  console.log(responseData);
+  res.render('apitest', { title: 'API Test', nodeData: responseData.nodes});
 });
+
 
 // router.get('/AddUser', function (req, res, next) {
 //   const options = {

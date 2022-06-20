@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=express-locallibrary-tutorial:* npm run devstart"
-  }, 
+  },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -15,7 +15,8 @@
     "express-session": "^1.17.3",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
