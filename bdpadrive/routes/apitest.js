@@ -9,22 +9,6 @@ router.get('/', function (req, res, next) {
 
 const user = 'MKEbdpa';
 
-// this gets executed whenever localhost:3000/apitest/AddNodes is opened
-router.get('/AddNodes', async (req,res,next)=>{
-  const fetch = require('node-fetch');
-  let myURL = apiParameters.baseurl + "filesystem/" + user;
-  const result = await fetch(myURL, {
-    method: 'POST',
-    headers: apiParameters.headers,
-    body: JSON.stringify({
-      type: 'directory',
-      name: 'My Musical Lyrics',
-      contents: []
-    })
-  });
-  console.log(await result.json());
-});
-
 // this gets executed whenever localhost:3000/apitest/ListNodes is opened
 router.get('/ListNodes', async (req,res,next) => {
   const fetch = require('node-fetch');
