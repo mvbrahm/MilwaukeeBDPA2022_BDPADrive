@@ -1,5 +1,9 @@
-const { redirect } = require("express/lib/response");
+// const { redirect } = require("express/lib/response");
 
-function dbSubmit() {
-    return redirect('./Submit');
+// function dbSubmit() {
+//     return redirect('./Submit');
+// }
+
+function unhideNewNodeForm() {
+    document.getElementById('newNodeForm').style.display = 'block';
 }
