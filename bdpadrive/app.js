@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dbtestRouter = require('./routes/dbtest');
 var apitestRouter = require('./routes/apitest');
+var explorerRouter = require('./routes/explorer');
 var keygenerationRouter = require('./routes/keygeneration');
 var bootstraptestRouter = require('./routes/bootstraptest');
 
@@ -28,6 +29,7 @@ app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/dbtest', dbtestRouter);
 app.use('/apitest', apitestRouter);
+app.use('/explorer', explorerRouter);
 app.use('/keygeneration', keygenerationRouter);
 app.use('/bootstraptest', bootstraptestRouter);
 

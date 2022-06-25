@@ -1,0 +1,15 @@
+<%- include('./partials/head', { title: 'Explorer' }) -%>
+    <h1>
+        <%= title %>
+    </h1>
+<p>Welcome to explorer view</p>
+<form action="/explorer/addfile" method="POST">
+    <label for="fname">File Name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="tags">Tags:</label><br>
+    <input type="text" id="tags" name="tags"><br>
+    <label for="content">Content:</label><br>
+    <input type="text" id="content" name="content"><br>
+    <input type="submit" value="Submit">
+  </form>
+<%- include('./partials/foot') -%>
