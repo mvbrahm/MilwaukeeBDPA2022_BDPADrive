@@ -1,0 +1,14 @@
+<%- include('./partials/head', { title: 'Q Test' }) -%>
+    <h1>
+        <%= title %>
+    </h1>
+    <form>
+        <input type="button" onclick="window.location.href='/qtest/ListQuestions'" value="List Questions">
+    </form>
+    <br>
+    <% if (questionData !==null ) { %>
+        <% questionData.forEach(function(question) { %>
+            <%= question.question_id %>, <%= question.creator %>, <%= question.title %>, <%= question.createdAt %>,  <%= question.text %> <br>
+        <% }) %>
+    <% }; %>
+<%- include('./partials/foot') -%>
