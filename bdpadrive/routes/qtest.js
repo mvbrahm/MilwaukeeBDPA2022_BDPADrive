@@ -12,7 +12,7 @@ router.get('/ListQuestions', async (req,res,next) => {
   const baseurl = "https://qoverflow.api.hscc.bdpa.org/V1/"
   const fetch = require('node-fetch');
   const header = {
-		'Authorization': 'bearer c9db0c13-8bd9-43d0-adfe-c930ee7052e6',
+		'Authorization': 'bearer <put api key here>',
 		'content-type': 'application/json'
 	}
   let myURL = baseurl + "questions/search";
