@@ -8,7 +8,7 @@
     <br>
     <% if (nodeData !==null ) { %>
         <% nodeData.forEach(function(node) { %>
-            <%= node.node_id %>, <%= node.type %>, <%= node.name %>, <%= node.owner %> <br>
+            <%= node.node_id %>, <%= node.type %>, <%= node.name %>, <%= node.owner %>,  <%= node.text %> <br>
         <% }) %>
     <% }; %>
 <%- include('./partials/foot') -%>
