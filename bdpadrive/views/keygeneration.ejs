@@ -41,10 +41,10 @@ form input.result {
   <input autocomplete="off" type="password" class="password" required />
   <div>
     <label>Login key:</label>
-    <input autocomplete="off" type="text" disabled class="key expand" />
+    <input autocomplete="off" type="hidden" disabled class="key expand" />
     <br>
     <label>Salt:</label>
-    <input autocomplete="off" type="text" disabled class="salt expand" />
+    <input autocomplete="off" type="hidden" disabled class="salt expand" />
   </div>
   <input
     autocomplete="off"
@@ -58,7 +58,7 @@ form input.result {
   <label>Password (same as above):</label>
   <input autocomplete="off" type="password" class="password" required />
   <label>Salt (copy-and-paste from above):</label>
-  <input autocomplete="off" type="text" class="salt expand" required />
+  <input autocomplete="off" type="hidden" class="salt expand" required />
   <div>
     <label>Result:</label>
     <input
@@ -194,6 +194,7 @@ keyForm.addEventListener('submit', async (e) => {
   // createNewUserAndSendToApi(keyString, saltString);
   keyFormKeyInput.setAttribute('value', keyString);
   keyFormSaltInput.setAttribute('value', saltString);
+  checkFormSaltInput.setAttribute('value', saltString);
 
   keyFormSubmit.setAttribute('disabled', true);
   checkFormSubmit.removeAttribute('disabled');
