@@ -8,7 +8,12 @@
     <br>
     <% if (questionData !==null ) { %>
         <% questionData.forEach(function(question) { %>
+            <h4>next line is showing just the value of text returned</h4>
             <%= question.question_id %>, <%= question.creator %>, <%= question.title %>, <%= question.createdAt %>,  <%= question.text %> <br>
+            <h4>next line is showing just the value of marked.parse(text) returned</h4>
+            <%= question.question_id %>, <%= question.creator %>, <%= question.title %>, <%= question.createdAt %>, <%= marked.parse(question.text) %> <br>
+            <h4>next line is showing just the unescaped value of marked.parse(text) returned</h4>
+            <%= question.question_id %>, <%= question.creator %>, <%= question.title %>, <%= question.createdAt %>, <%- marked.parse(question.text) %> <br>
         <% }) %>
     <% }; %>
 <%- include('./partials/foot') -%>

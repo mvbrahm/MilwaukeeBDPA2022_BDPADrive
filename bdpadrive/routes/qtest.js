@@ -1,6 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var apiParameters = require('../configs/api');
+var marked = require('marked');
+// to use marked, you need to do 'npm install marked' in the bdpadrive folder
+// there also seemed to be a bug in the marked code that you can fix in the following file:
+// node_modules/marked/lib/marked.cjs
+// in that file, search for var l = tokens.length; on line 2360, comment out that line and replace with   
+    // if (undefined != tokens) {
+    //   var l = tokens.length;
+    // } else {
+    //   var l =0;
+    // }
 
 // this gets executed whenever localhost:3000/qtest is opened
 router.get('/', function (req, res, next) {
@@ -9,20 +19,16 @@ router.get('/', function (req, res, next) {
 
 // this gets executed whenever localhost:3000/qtest/ListQuestions is opened
 router.get('/ListQuestions', async (req,res,next) => {
-  const baseurl = "https://qoverflow.api.hscc.bdpa.org/V1/"
+  const baseurl = apiParameters.baseurl;
   const fetch = require('node-fetch');
-  const header = {
-		'Authorization': 'bearer <put api key here>',
-		'content-type': 'application/json'
-	}
   let myURL = baseurl + "questions/search";
   const result = await fetch(myURL, {
     method: 'GET',
-    headers: header
+    headers: apiParameters.headers
   });
   const responseData = await result.json();
   console.log(responseData);
-  res.render('qtest', { title: 'Q Test', questionData: responseData.questions});
+  res.render('qtest', { marked: marked, title: 'Q Test', questionData: responseData.questions});
 });
 
 
